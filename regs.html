@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration Form</title>
+    <link rel="stylesheet" href="css/re.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css"/>
+</head>
+<body>
+    <section class="container">
+        <div class="header-image">
+            <img id="head-img" src="images/NARAIN SAMITI LOGO.png" alt="Logo" width="600px" height="60px">
+        </div>
+        <header>Patient Registration</header>
+        <form action="#" class="form">
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter full name" required />
+            </div>
+            <div class="input-box">
+                <label for="photo">Upload Photograph</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required />
+            </div>
+            <div class="input-box">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter email address" required />
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Tel</label>
+                    <input type="tel" id="tel" placeholder="Mobile number" name="tel" required>
+                </div>
+                <div class="input-box">
+                    <label>Birth Date</label>
+                    <input type="text" id="birth-date" placeholder="dd-mm-yyyy" required />
+                </div>
+            </div>
+            <div class="gender-box">
+                <h3>Gender</h3>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input type="radio" id="check-male" name="gender" checked />
+                        <label for="check-male">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-female" name="gender" />
+                        <label for="check-female">Female</label>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label>Father's Name</label>
+                    <input type="text" placeholder="Enter father's name" required />
+                </div>
+                <div class="input-box">
+                    <label>ID Proof</label>
+                    <input type="text" placeholder="Enter ID" required />
+                </div>
+            </div>
+            <div class="input-box address">
+                <div class="column">
+                    <div class="input-box">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" readonly>
+                    </div>
+                </div>
+            </div>
+            <button>Register</button>
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var input = document.querySelector("#tel");
+            var countryInput = document.querySelector("#country");
+
+            var iti = window.intlTelInput(input, {
+                initialCountry: "auto",
+                geoIpLookup: function(callback) {
+                    fetch('https://ipinfo.io/json?token=<your_token>')
+                        .then(function(response) {
+                            if (response.ok) return response.json();
+                            throw new Error('Failed to fetch IP info');
+                        })
+                        .then(function(ipInfo) {
+                            var countryCode = (ipInfo && ipInfo.country) ? ipInfo.country.toLowerCase() : "us";
+                            callback(countryCode);
+                        })
+                        .catch(function() {
+                            callback("us");
+                        });
+                },
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
+            });
+
+            input.addEventListener('countrychange', function() {
+                var countryData = iti.getSelectedCountryData();
+                if (countryData) {
+                    countryInput.value = countryData.name;
+                }
+            });
+
+            input.addEventListener('input', function() {
+                var countryData = iti.getSelectedCountryData();
+                if (countryData) {
+                    countryInput.value = countryData.name;
+                }
+            });
+
+            // Initialize flatpickr on the birth date input field
+            flatpickr("#birth-date", {
+                dateFormat: "d-m-Y",
+                altInput: true,
+                altFormat: "d-m-Y",
+                maxDate: "today"
+            });
+        });
+    </script>
+    
+</body>
+</html>

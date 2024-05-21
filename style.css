@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+        
+*{
+    margin: 0;
+    padding: 0;
+   
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+        
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+/* .navbar-dark .navbar-nav .nav-link{
+    color: rgb(255, 254, 254) !important;
+    font-weight: 400;
+    
+} */
+.logo-name{
+    text-decoration: none;
+    font-size: 25px;
+    color: green;
+
+    padding: 0px 7px 0px 8px;
+    margin-right:17px ;
+  }
+  .sect{
+    margin-top: 50px;
+    text-align: center;
+}
+.heading{
+    font-size: 40px;
+}
+.dd{
+    padding: 50px;
+}
+ /* Custom CSS for navbar */
+.navbar-brand {
+margin-right: 20px; /* Add space between company name and logo */
+}
+
+.navbar-nav .nav-link {
+color: black; /* Set text color to black */
+}
+
+.navbar-nav .nav-link:hover {
+color: green; /* Change text color to green on hover */
+}
+
+.navbar-nav {
+margin-right: auto; /* Push navbar items to the right */
+}
+
+.navbar-nav > li:not(:last-child) {
+margin-right: 20px; /* Add space between navbar items */
+}
+
+.pb-2{
+    color: rgb(244, 235, 235);
+}
+#last-text{
+    color: rgb(245, 234, 234);
+}
+
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #060606;
+    color: white;
+  }
+
+  .footer-section div {
+    /* flex: 1; */
+    margin-bottom: 20px;
+  }
+
+  .footer-section div:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-section h5 {
+    margin-bottom: 10px;
+  }
+
+  .footer-section p, .footer-section a {
+    margin: 0;
+    color: white;
+  }
+
+  .footer-section .important-links a {
+    color: rgb(242, 234, 234);
+    text-decoration: none;
+  }
+
+  .footer-section .important-links a:hover {
+    color: green;
+  }
+
+  .footer-section .contact-details a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer-section .contact-details a:hover {
+   color: blue;
+  }
+  @media (min-width: 768px) {
+.footer-section {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-section div {
+  flex: 1;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+
+.footer-section div:last-child {
+  margin-right: 0;
+}
+}
+
+.row.bg-secondary.text-white.text-center.pt-2 {
+margin: 0;
+padding: 10px;
+background: #343a40;
+text-align: center;
+}
+
+.row.bg-secondary.text-white.text-center.pt-2 .col-12 {
+padding: 0;
+}
+
+.title {
+    font-size: 2em;
+    color: #100f10;
+    display: block;
+    
+}
+
+.sub-title {
+    font-size: 0.8em;
+    color: gray;
+    display: block;
+}
+
+.btn1 {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #8c0c3c;
+    color: #8c0c3c;
+    border-radius: 3px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.btn1:hover {
+    background: #8c0c3c;
+    color: #fff;
+}
+
+.title:before {
+    content: " ";
+    font-family: "FontAwesome";
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section2, .section3 {
+    width: 90%;
+    margin: 5% 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+}
+
+.section2 table, .section3 table {
+    width: 100%;
+}
+
+.section2 table td, .section3 table td {
+    width: 50%;
+}
+
+.section2 table td img, .section3 table td img {
+    width: 80%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 6px 16px -6px rgba(1,1,1,0.5);
+}
+
+.section3 table td img {
+    float: right;
+}
+
+@media (max-width: 720px) {
+    .section2 table td, .section3 table td {
+        width: 100%;
+        display: block;
+    }
+    .section3 table td img {
+        float: none;
+        margin-top: 4%;
+    }
+    .section2 table td img, .section3 table td img {
+        width: 100%;
+        height: 60%;
+    }
+}
+
+@media (max-width: 300px) {
+    .section2, .section3 {
+        font-size: 12px;
+    }
+    .section3 table td img {
+        float: none;
+        margin-top: 8%;
+    }
+    .btn1 {
+        padding: 5px 10px;
+    }
+}
+
+.footer {
+    box-shadow: 0px 6px 16px -6px rgba(1,1,1,0.5);
+    background: #1e1e1e;
+    padding: 10px 20px;
+    color: gray;
+    font-size: 13px;
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+}
+.top {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+.top h1 {
+    font-size: 3em;
+    color: #101010;
+    padding: 10px;
+    text-decoration: underline green;
+
+    display: inline-block;
+}

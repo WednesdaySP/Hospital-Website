@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Login Form</title>
+    <link rel="stylesheet" href="css/staff.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+<body>
+    <section class="container">
+        <div class="header-image">
+            <img id="head-img" src="images/black-logo.png" alt="Logo" width="600px" height="60px">
+        </div>
+        <header>Staff Login</header>
+        <form action="#" class="form login-form">
+            <div class="input-box">
+                <label for="UserId">UserId</label>
+                <input type="number" id="UserId" placeholder="Enter UserId" required />
+            </div>
+            <div class="input-box">
+                <label for="Password">Password</label>
+                <input type="password" id="Password" placeholder="Password" required />
+            </div>
+            <button type="submit">Login</button>
+            
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.login-form').on('submit', function(event) {
+                event.preventDefault();
+                const userId = $('#UserId').val();
+                const password = $('#Password').val();
+
+                if (!userId || !password) {
+                    alert('Please enter both UserId and Password.');
+                    return;
+                }
+
+                // Add login authentication logic here
+                alert('Login form submitted with UserId: ' + userId);
+            });
+        });
+    </script>
+</body>
+</html>

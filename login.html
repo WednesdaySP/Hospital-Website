@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login Form</title>
+    <link rel="stylesheet" href="css/re.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <section class="container">
+        <div class="header-image">
+            <img id="head-img" src="images/NARAIN SAMITI LOGO.png" alt="Logo" width="600px" height="60px">
+          </div>
+        <header>Patient Login</header>
+        <form action="#" class="form login-form">
+            <div class="input-box">
+                <label>UserId</label>
+                <input type="text" id="emailOrPhone" placeholder="Enter email address or mobile number" required />
+            </div>
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" placeholder="Password" required />
+            </div>
+            
+            <button type="submit">Login</button>
+            <div>
+                <input type="checkbox" name="" id="">
+                <label for="">Remember me</label>
+               
+            </div>
+
+
+            <div class="register-forget opacity">
+                <p>Create account <a href="regs.html">REGISTER</a></p>
+                <a href="javascript:void(0)" id="forgot-password">FORGOT PASSWORD</a>
+            </div>
+        </form>
+
+        <form action="#" class="form forgot-password-form" style="display: none;">
+            <div class="input-box">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter email address" required />
+            </div>
+            <button type="submit">Reset Password</button>
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script>
+        prompt("Hello user");
+        $(document).ready(function() {
+            // Validate email or phone number
+            function validateEmailOrPhone(input) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phonePattern = /^\d{10}$/;
+                if (emailPattern.test(input)) {
+                    return 'email';
+                } else if (phonePattern.test(input)) {
+                    return 'phone';
+                } else {
+                    return 'invalid';
+                }
+            }
+
+            // Handle form submissions
+            $('.login-form').on('submit', function(event) {
+                event.preventDefault();
+                const emailOrPhone = $('#emailOrPhone').val();
+                const validationType = validateEmailOrPhone(emailOrPhone);
+
+                if (validationType === 'invalid') {
+                    alert('Please enter a valid email address or 10-digit phone number.');
+                    return;
+                }
+
+                // Add login authentication logic here
+                alert('Login form submitted with ' + validationType);
+            });
+
+            $('.forgot-password-form').on('submit', function(event) {
+                event.preventDefault();
+                // Add password reset logic here
+                alert('Password reset form submitted!');
+            });
+
+            $('#forgot-password').on('click', function() {
+                $('.login-form').hide();
+                $('.forgot-password-form').show();
+            });
+
+           
+        });
+    </script>
+</body>
+</html>
