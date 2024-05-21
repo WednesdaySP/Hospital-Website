@@ -1,0 +1,206 @@
+:root {
+    --lightbox-bg-color: #100f0f;
+    --lightbox-caption-text-color: white;
+    --lightbox-controls-color: white;
+    --lightbox-controls-hover-color: #bf40bf;
+}
+  
+/* Styles for lightbox */
+#lightbox {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    /* margin-bottom: 10px; */
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background: var(--lightbox-bg-color);
+    opacity: 0; /* Initial opacity set to 0 */
+    transition: opacity 0.5s; /* Cross-fade transition */
+}
+  
+/* Container for the image and caption */
+#lightbox figure {
+    max-width: calc(90vw - 100px);
+    max-height: calc(90vh - 100px);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.lightbox-image {
+    width: 60vw;
+    height: 100%;
+    max-height: calc(100vh - 100px); /* Adjusted to accommodate the caption */
+    display: block;
+    margin: 0;
+    opacity: 0; /* Initial opacity */
+    transition: opacity 0.5s; /* Cross-fade transition */
+    object-fit: contain;
+    aspect-ratio: 4/3;
+}
+  
+#lightbox-caption {
+    color: var(--lightbox-caption-text-color);
+    text-align: center;
+    width: 100%;
+    height: 80px; /* Fixed height for the caption */
+    background: rgba(247, 244, 244, 0); /* Semi-transparent background for the caption */
+    padding: 10px; /* Padding for spacing */
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+  
+/* Styling for h2 and p in the caption */
+#lightbox-caption h2 {
+    font-size: 1.2em; /* Adjust as needed */
+    margin: 0;
+}
+  
+#lightbox-caption p {
+    font-size: 0.9em; /* Adjust as needed */
+    margin: 0;
+}
+  
+#close,
+#prev,
+#next,
+#autoplay {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--lightbox-controls-color);
+}
+  
+#lightbox #close {
+    top: 35px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+}
+  
+#lightbox #close:hover {
+    background: rgba(178, 34, 52, 0.95);
+}
+
+#lightbox #close {
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+#lightbox #close:after,
+.close-button:before {
+    content: "" "";
+    width: 55%;
+    height: 2px;
+    background: #fafafa;
+    position: absolute;
+    top: 48%;
+    left: 22%;
+    transform: rotate(-45deg);
+    transition: 0.3s ease-out;
+}
+
+#lightbox #close:after {
+    transform: rotate(45deg);
+    transition: 0.3s ease-out;
+}
+
+#lightbox #close:hover:after,
+.close-button:hover:before {
+    transform: rotate(180deg);
+}
+  
+#lightbox #prev {
+    left: 20px;
+}
+  
+#lightbox #next {
+    right: 20px;
+}
+
+#lightbox #autoplay {
+    top: 15px;
+    left: 92%;
+    transform: translateX(-50%);
+}
+  
+#close:hover,
+#prev:hover,
+#next:hover,
+#autoplay:hover {
+    background: rgba(178, 34, 52, 0.95);
+    transition: all 0.5s ease-in-out;
+}
+  
+/* Demo styles */
+  
+.top-title {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+  
+.gallery {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 30px; /* Row gap */
+    column-gap: 30px; /* Column gap */
+}
+  
+.gallery img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+}
+  
+.gallery img:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+  
+@media (max-width: 980px) {
+    .gallery img:hover {
+        transform: none;
+    }
+}
+  
+/* Demo page styles */
+/* body {
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 50vh;
+    background: #f0eded;
+    color: rgb(17, 6, 6);
+    font-size: calc(16px + 0.25vw);
+    text-align: center;
+} */
+  
+.top-title h1{
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline green;
+    text-transform: uppercase;
+}
+
