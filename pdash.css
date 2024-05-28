@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.light:root {
+  --app-bg: #fff;
+  --sidebar: #f3f6fd;
+  --app-content-secondary-color: #f3f6fd;
+  --app-content-main-color: #1f1c2e;
+  --sidebar-link: #1f1c2e;
+  --sidebar-hover-link: rgba(195, 207, 244, 0.5);
+  --sidebar-active-link: rgba(195, 207, 244, 1);
+  --sidebar-main-color: #1f1c2e;
+  /* --filter-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--app-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 1280px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  margin-top: 15px;
+  flex-basis: 200px;
+  /* max-width: 200px; */
+  flex-shrink: 0;
+  background-color:rgb(112, 215, 112);
+  display: flex;
+  flex-direction: column; 
+  width: 250px;
+  
+  min-height: 100vh;
+  /* position: fixed; */
+  /* left: 0;
+  top: 0; */
+  /* top: 10px; */
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+.sidebar.active {
+  transform: translateX(-100%);
+}
+
+.sidebar-header {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: grey;
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-list-item {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.sidebar-list-item a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 16px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.sidebar-list-item svg {
+  margin-right: 10px;
+}
+
+.sidebar-list-item:hover {
+  background-color: rgb(198, 235, 190);
+}
+
+.sidebar-list-item.active {
+  background-color: rgb(227, 228, 227);
+}
+
+/* .sidebar-list-item.active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-color: blue;
+  height: 100%;
+  width: 4px;
+} */
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+
+.account-info {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-top: auto;
+}
+
+.account-info-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.account-info-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.account-info-name {
+  font-size: 14px;
+  color: black;
+  margin: 0 8px;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account-info-id{
+  font-size:12px ;
+  color: black;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-info-more {
+  color: black;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+}
+
+.app-icon {
+  color: var(--sidebar-main-color);
+}
+
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.app-content {
+  padding: 16px;
+  background-color: var(--app-bg);
+  height: 100%;
+  flex: 1;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 250px; */
+  /* padding: 20px; */
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.app-content-header {
+  background-color: rgb(112, 215, 112);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* padding: 0 4px; */
+}
+
+.app-content-headerText {
+ padding-left: 10px;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+}
+
+        .center-button-container {
+          margin: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .center-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .center-button:hover {
+            background-color: #19f156;
+        }
+        .appointment-history-header{
+          text-align: center;
+          font-size: 30px;
+        }
+        .apointment-history{
+          width: 100%;
+          height: 500px;
+          max-height: 500px;
+          background:whitesmoke;
+          padding: 20px;
+        }
+
+        .reports-section {
+            display: none;
+            padding: 20px;
+        }
+
+        .reports-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .reports-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .report-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: calc(33% - 20px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-details p {
+            margin: 5px 0;
+        }
+
+        .download-button {
+            background-color:green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        main{
+          margin-top: 10px;
+          background: #e8eee8;
+          height: 100%;
+        }
+
+        /* dropdown */
+        /* .dropdown-menu {
+          display: none; Initially hide the dropdown menu  
+          position: absolute;
+          background-color: #fff;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+      }*/
+      
+      /* .sidebar-list-item.active .dropdown-menu {
+          display: block; /* Display the dropdown menu when its parent is active 
+      } */
+
+      .sidebar-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
